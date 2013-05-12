@@ -104,6 +104,23 @@
             }
         },
         /**
+         * 重置下拉框控件选项
+         * @param {Object} 新选项的键值对
+         * @param {String} 选中的选项（不定义则选中第一项）
+         * @return {String} 下拉框当前选中项的值 
+         */
+        setOptions: function(opts, val){
+            this.select.html('');
+            this.ul.html('');
+            var a= [];
+            for(var i in opts){
+                a.push(i);
+                this.addOption(i, opts[i], false);
+            }
+            val= val|| opts[a[0]];
+            this.val(val);
+        },
+        /**
          *显示下拉列表项 
          */
         showList: function () {
